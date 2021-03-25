@@ -10,6 +10,7 @@ apk add python3 py3-pip git
 pip install xlsx2csv
 
 mkdir ./work
+rm -rf government/ region-*
 wget $URL -O ./work/mde-urls.xlsx
 xlsx2csv -a ./work/mde-urls.xlsx ./work
 
