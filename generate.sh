@@ -16,16 +16,18 @@ wget $URL -O ./work/mde-urls.xlsx
 xlsx2csv -a ./work/mde-urls.xlsx ./work
 
 function pars_categories {
-    case $1 in
+    value=$(echo $1 | tr -d '[:blank:]')
+    
+    case $value in
     "Common"*)
     echo "common"
     ;;
 
-    *"Monitoring"*)
+    "MicrosoftMonitoring"*)
     echo "microsoft-monitoring-agent"
     ;;
 
-    *"Endpoint"*)
+    "MicrosoftDefender"*)
     echo "microsoft-defender-for-endpoint"
     ;;
 
@@ -42,7 +44,7 @@ function pars_categories {
     ;;
 
     *)
-    echo $1
+    echo $value
     ;;
     esac
 
@@ -52,7 +54,7 @@ function pars_categories {
 while IFS="," read -r region category endpoint
 do
     
-    category=$(pars_categories $category | tr '[:upper:]' '[:lower:]')
+    category=$(pars_categories "$category" | tr '[:upper:]' '[:lower:]')
     FOLDERNAME="./region-$(echo $region | tr '[:upper:]' '[:lower:]' | tr -d '[:blank:]')"
     mkdir $FOLDERNAME -p
     echo $endpoint >> "$FOLDERNAME/$category"
@@ -61,7 +63,7 @@ done < <(cut -d "," -f2,3,5 ./work/Microsoft\ Defender\ URLs.csv | tail -n +2)
 # Microsoft Defender for Endpoint URLs US Gov
 while IFS="," read -r region category endpoint
 do
-    category=$(pars_categories $category | tr '[:upper:]' '[:lower:]')
+    category=$(pars_categories "$category" | tr '[:upper:]' '[:lower:]')
     FOLDERNAME="./government/$(echo $region | tr '[:upper:]' '[:lower:]' | tr -d '[:blank:]')"
     mkdir $FOLDERNAME -p
     echo $endpoint >> "$FOLDERNAME/$category"
