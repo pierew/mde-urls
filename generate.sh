@@ -79,7 +79,7 @@ do
     echo $endpoint >> "$FOLDERNAME/security-center"
 done < <(cut -d "," -f2,3 ./work/Security\ Center\ URLs\ -\ US\ Gov.csv | tail -n +2)
 
-rm -rf ./work/*
+rm -rf ./work
 
 git pull
 git add -A 
