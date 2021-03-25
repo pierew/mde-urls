@@ -9,6 +9,7 @@ URL="https://download.microsoft.com/download/8/a/5/8a51eee5-cd02-431c-9d78-a58b7
 apk add python3 py3-pip git
 pip install xlsx2csv
 
+cd /root/mde-urls
 mkdir ./work
 rm -rf government/ region-*
 wget $URL -O ./work/mde-urls.xlsx
@@ -42,6 +43,7 @@ function pars_categories {
 
     *)
     echo $1
+    ;;
     esac
 
 }
