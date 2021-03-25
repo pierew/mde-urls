@@ -89,5 +89,6 @@ rm -rf ./work
 git pull
 git add -A 
 git commit -am "$(date)"
-git tag "$(date '+%F')"
+git tag "$(date '+%F-%s')"
 git push
+git push --tags
