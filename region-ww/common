@@ -1,0 +1,15 @@
+crl.microsoft.com/pki/crl/*
+ctldl.windowsupdate.com
+www.microsoft.com/pkiops/*
+events.data.microsoft.com
+*.notify.windows.com
+*.wns.windows.com
+login.microsoftonline.com
+login.live.com
+settings-win.data.microsoft.com
+x.cp.wd.microsoft.com
+cdn.x.cp.wd.microsoft.com
+eu-cdn.x.cp.wd.microsoft.com
+wu-cdn.x.cp.wd.microsoft.com
+officecdn-microsoft-com.akamaized.net
+crl.microsoft.com
