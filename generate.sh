@@ -58,6 +58,7 @@ do
     FOLDERNAME="./region-$(echo $region | tr '[:upper:]' '[:lower:]' | tr -d '[:blank:]')"
     mkdir $FOLDERNAME -p
     echo $endpoint >> "$FOLDERNAME/$category"
+    echo $endpoint >> "combined.list"
 done < <(cut -d "," -f2,3,5 ./work/Microsoft\ Defender\ URLs.csv | tail -n +2)
 
 # Microsoft Defender for Endpoint URLs US Gov
@@ -67,6 +68,7 @@ do
     FOLDERNAME="./government/$(echo $region | tr '[:upper:]' '[:lower:]' | tr -d '[:blank:]')"
     mkdir $FOLDERNAME -p
     echo $endpoint >> "$FOLDERNAME/$category"
+    echo $endpoint >> "combined.list"
 done < <(cut -d "," -f2,3,5 ./work/Microsoft\ Defender\ URLs\ -\ USGov.csv | tail -n +2)
 
 # Security Center URLs
@@ -74,6 +76,7 @@ while IFS="," read -r endpoint
 do
     FOLDERNAME="./region-ww"
     echo $endpoint >> "$FOLDERNAME/security-center"
+    echo $endpoint >> "combined.list"
 done < <(cut -d "," -f3 ./work/Security\ Center\ URLs.csv | tail -n +2)
 
 # Security Center URLs US Gov
@@ -82,6 +85,7 @@ do
     FOLDERNAME="./government/$(echo $region | tr '[:upper:]' '[:lower:]' | tr -d '[:blank:]')"
     mkdir $FOLDERNAME -p
     echo $endpoint >> "$FOLDERNAME/security-center"
+    echo $endpoint >> "combined.list"
 done < <(cut -d "," -f2,3 ./work/Security\ Center\ URLs\ -\ US\ Gov.csv | tail -n +2)
 
 rm -rf ./work
