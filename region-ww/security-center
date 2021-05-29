@@ -1,9 +1,0 @@
-*.blob.core.windows.net
-crl.microsoft.com
-https://*.microsoftonline-p.com
-https://secure.aadcdn.microsoftonline-p.com
-https://static2.sharepointonline.com
-https://login.microsoftonline.com
-https://securitycenter.windows.com
-https://onboardingpackagescusprd.blob.core.windows.net
-https://security.microsoft.com
