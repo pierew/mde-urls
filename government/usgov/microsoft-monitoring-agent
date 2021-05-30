@@ -1,0 +1,4 @@
+*.ods.opinsights.azure.us
+*.oms.opinsights.azure.us
+*.azure-automation.us
+*.blob.core.usgovcloudapi.net
